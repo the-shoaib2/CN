@@ -1,0 +1,57 @@
+Software clause at DFARS sec. 252.227-7013.
+
+           cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco Internetwork Operating System Software
+IOS (tm) PT1000 Software (PT1000-I-M), Version 12.2(28), RELEASE SOFTWARE (fc5)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Wed 27-Apr-04 19:01 by miwang
+
+PT 1001 (PTSC2005) processor (revision 0x200) with 60416K/5120K bytes of memory
+.
+Processor board ID PT0123 (0123)
+PT2005 processor: part number 0, mask 01
+Bridging software.
+X.25 software, Version 3.0.0.
+4 FastEthernet/IEEE 802.3 interface(s)
+2 Low-speed serial(sync/async) network interface(s)
+32K bytes of non-volatile configuration memory.
+63488K bytes of ATA CompactFlash (Read/Write)
+
+
+         --- System Configuration Dialog ---
+
+Continue with configuration dialog? [yes/no]: no
+
+
+Press RETURN to get started!
+
+
+
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int fa0/0	
+Router(config-if)#ip address 192.168.10.1 255.255.255.224
+Router(config-if)#no shut
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+exit
+
+Router(config)#int fa1/0
+Router(config-if)#ip address 192.168.20.1 255.255.255.252
+Router(config-if)#exit
+Router(config)#ip route 192.168.30.0 255.255.255.240 192.168.20.2
+Router(config)#exit
+Router#
+
+
+%SYS-5-CONFIG_I: Configured from console by console
